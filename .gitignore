@@ -1,0 +1,37 @@
+node_modules/
+dist/
+dist-electron/
+release/
+out/
+coverage/
+.vite/
+.vscode/
+*.log
+*.tsbuildinfo
+
+# Local launcher data and game files
+%appdata%/
+.minecraft/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+.npmrc
+.netrc
+*.secret
+**/secrets/
+**/credentials/
+**/credentials*.json
+**/client_secret*.json
+**/token*.json
+*.pem
+*.p12
+*.pfx
+*.key
+*.jks
+*.keystore
+
+# OS metadata
+.DS_Store
+Thumbs.db

@@ -1,0 +1,69 @@
+{
+  "name": "starclient",
+  "version": "1.0.0",
+  "description": "StarClient Launcher",
+  "author": {
+    "name": "StarClient"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JeffCtrl/StarClient.git"
+  },
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "electron": "vite build && electron .",
+    "pack": "npm run build && node scripts/prepare-win-rcedit.cjs && electron-builder --publish never && node scripts/finalize-win-executables.cjs",
+    "release": "npm run build && node scripts/prepare-win-rcedit.cjs && electron-builder --publish always && node scripts/finalize-win-executables.cjs"
+  },
+  "dependencies": {
+    "axios": "^1.20.0",
+    "graceful-fs": "^4.2.11",
+    "lucide-react": "^0.300.0",
+    "minecraft-launcher-core": "^3.12.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "skinview3d": "^3.4.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.13.3",
+    "typescript": "^5.5.0",
+    "vite": "^5.4.21"
+  },
+  "build": {
+    "appId": "com.starclient.app",
+    "productName": "StarClient",
+    "artifactName": "StarClient.${ext}",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "JeffCtrl",
+        "repo": "StarClient",
+        "releaseType": "draft"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build-assets/starclient.ico",
+      "signAndEditExecutable": false
+    },
+    "afterPack": "scripts/afterPack-win-resources.cjs",
+    "nsis": {
+      "installerIcon": "build-assets/starclient.ico",
+      "uninstallerIcon": "build-assets/starclient.ico"
+    }
+  }
+}
