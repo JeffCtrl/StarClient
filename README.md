@@ -1,4 +1,6 @@
-# StarClient Launcher
+# StarClient
+
+StarClient Launcher
 
 A fresh, editable UI-first starter for a premium Minecraft Java launcher.
 
@@ -70,4 +72,4 @@ Before each release:
 3. Set `GH_TOKEN` in the current shell or a secure CI secret store. It needs permission to write contents/releases in `JeffCtrl/StarClient`. Never commit the token.
 4. Run `npm run release`, then review and publish the resulting draft on GitHub.
 
-The local project directory has its own existing README, while the GitHub repository already has a short README on `main`. On the first push, fetch and merge the remote history with `--allow-unrelated-histories`, resolve the README conflict by preserving both sets of information, and push normally; do not force-push. The in-app update check and UI wiring are intentionally deferred.
+The GitHub repository's original StarClient title is preserved above. In-app update checks and UI wiring remain deferred.
